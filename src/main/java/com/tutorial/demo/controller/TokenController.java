@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.tutorial.demo.model.JwtUser;
 import com.tutorial.demo.security.JwtGenerator;
 
+/*Just a controller where you can request a token to access.*/
+
 @RestController
 @RequestMapping("/token")
 public class TokenController {

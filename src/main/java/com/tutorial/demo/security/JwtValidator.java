@@ -20,6 +20,7 @@ public class JwtValidator {
                     .setSigningKey(secret)
                     .parseClaimsJws(token)
                     .getBody();
+            
 
             jwtUser = new JwtUser();
 

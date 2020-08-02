@@ -34,6 +34,7 @@ public class JwtSecurityConfig extends WebSecurityConfigurerAdapter {
         return new ProviderManager(Collections.singletonList(authenticationProvider));
     }
 
+    //Check if the token exist or not and manage what are you going to send if it is succesfull
     @Bean
     public JwtAuthenticationTokenFilter authenticationTokenFilter() {
         JwtAuthenticationTokenFilter filter = new JwtAuthenticationTokenFilter();
@@ -46,10 +47,11 @@ public class JwtSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
+    	//**/rest/** this means only with rest it would work it
         http.csrf().disable()
                 .authorizeRequests().antMatchers("**/rest/**").authenticated()
                 .and()
-                .exceptionHandling().authenticationEntryPoint(entryPoint)
+                .exceptionHandling().authenticationEntryPoint(entryPoint) //Will handle the error of the authentication
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 

@@ -17,8 +17,9 @@ public class JwtGenerator {
                 .setSubject(jwtUser.getUserName());
         claims.put("userId", String.valueOf(jwtUser.getId()));
         claims.put("role", jwtUser.getRole());
+        
 
-
+        //youtube = it is a secret code, you can use anything else
         return Jwts.builder()
                 .setClaims(claims)
                 .signWith(SignatureAlgorithm.HS512, "youtube")
